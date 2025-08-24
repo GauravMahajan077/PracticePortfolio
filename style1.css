@@ -1,0 +1,377 @@
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    line-height: 1.6;
+    color: #1a1a1a;
+    background-color: #a2d39c; 
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+header {
+    background-color: #144d32;
+    color: #e5f4e3; 
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+header p {
+    font-size: 1.1em;
+}
+header p a {
+    color: #79c267; 
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+header p a:hover {
+    color: #4b8c4b;
+}
+
+
+h2 {
+    color: #144d32;
+    margin: 20px 0;
+    font-size: 1.8em;
+}
+
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #d3f1c4; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+table td {
+    padding: 20px;
+    vertical-align: top;
+    border: 1px solid #144d32;
+}
+h3 {
+    color: #144d32;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+}
+
+
+
+ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+ul li {
+    margin-bottom: 10px;
+    position: relative;
+}
+ul li::before {
+    content: '•';
+    color: #79c267;
+    position: absolute;
+    left: -20px;
+}
+
+
+a {
+    color: #007ff7;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+a:hover {
+    color: #9500ff;
+    text-decoration: underline;
+}
+
+
+p {
+    margin-bottom: 10px;
+}
+
+
+footer {
+    background-color: #144d32;
+    color: #e5f4e3;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+
+@media (max-width: 768px) {
+    table { display: block; }
+    table tr { display: block; margin-bottom: 20px; }
+    table td { display: block; border: none; border-bottom: 1px solid #144d32; }
+    header h1 { font-size: 2em; }
+    h2 { font-size: 1.5em; }
+    h3 { font-size: 1.2em; }
+}
+
+
+
+
+#container {
+  width: 3.0625rem;
+  height: 1.375rem;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+}
+
+.toggle {
+  position: absolute;
+  width: 3.0625rem;
+  user-select: none;
+}
+
+[type="checkbox"] {
+  display: none;
+}
+
+.check-label {
+  display: block;
+  width: 3.0625rem;
+  height: 1.375rem;
+  border: none;
+  border-radius: 0.75rem;
+  background: #d7d7d7;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.check-label .face {
+  display: block;
+  position: absolute;
+  content: "";
+  top: 0.1125rem;
+  bottom: 0;
+  right: 1.8125rem;
+  width: 1.125rem;
+  height: 1.125rem;
+  margin: 0;
+  border: none;
+  border-radius: 0.75rem;
+  background: linear-gradient(45deg, #f5eeee 0%, #fff 70%);
+  transition: all 0.45s ease-in-out;
+  overflow: hidden;
+}
+
+[type="checkbox"] + .check-label #background {
+  width: inherit;
+  height: inherit;
+  border: none;
+  border-radius: inherit;
+  background: linear-gradient(to left, #448d50, #34672c);
+  opacity: 0;
+  transition: all 0.45s ease-in-out;
+}
+
+[type="checkbox"]:checked + .check-label #background {
+  opacity: 1;
+}
+
+.face-container {
+  position: absolute;
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.face {
+  box-shadow: 0 0.075rem 0.075rem rgba(0, 0, 0, 0.25);
+}
+
+
+.eye {
+  position: absolute;
+  top: 0.5625rem;
+  height: 0.0625rem;
+  width: 0.15625rem;
+  background: #8e8e8e;
+  border-radius: 0 0 100% 50%;
+}
+
+.eye.left {
+  left: 0.1875rem;
+}
+
+.eye.right {
+  left: 0.53125rem;
+}
+
+.mouth {
+  position: absolute;
+  top: 0.78125rem;
+  left: 0.3625rem;
+  width: 0.11875rem;
+  height: 0.0625rem;
+  background: #8e8e8e;
+  border-radius: 40% 40% 100% 50%;
+}
+
+[type="checkbox"]:checked + .check-label .face {
+  right: 0.15rem;
+}
+
+[type="checkbox"]:checked + .check-label .face .face-container {
+  animation: rotateElement forwards 0.3s;
+}
+
+[type="checkbox"]:checked + .check-label .face .eye.left,
+[type="checkbox"]:checked + .check-label .face .eye.right {
+  animation: changeFace forwards 0.3s 0.075s;
+}
+
+[type="checkbox"]:checked + .check-label .face .mouth {
+  animation: changeMouth forwards 0.3s 0.075s;
+}
+
+[type="checkbox"]:checked + .check-label .face .eye.left {
+  left: 0.25rem;
+}
+
+[type="checkbox"]:checked + .check-label .face .eye.right {
+  left: 0.625rem;
+}
+
+/* reverse (unchecked) animations applied to the default state so toggling smoothly animates back */
+[type="checkbox"] + .check-label .face .face-container {
+  animation: rotateElementReverse forwards 0.3s;
+}
+
+[type="checkbox"] + .check-label .face .eye.left,
+[type="checkbox"] + .check-label .face .eye.right {
+  animation: changeFaceReverse forwards 0.3s;
+}
+
+[type="checkbox"] + .check-label .face .mouth {
+  animation: changeMouthReverse forwards 0.3s;
+}
+
+/* keyframes for rotating/moving face container */
+@keyframes rotateElement {
+  0% { left: 0; }
+  25% { left: 1rem; }
+  30% { opacity: 0; }
+  50% { opacity: 0; left: -1rem; }
+  90% { opacity: 1; }
+  100% { left: 0.25rem; opacity: 1; }
+}
+
+@keyframes rotateElementReverse {
+  0% { left: 0; }
+  25% { left: -1rem; }
+  30% { opacity: 0; }
+  50% { opacity: 0; left: 1rem; }
+  90% { opacity: 1; }
+  100% { left: 0; opacity: 1; }
+}
+
+/* eyes changing into round dots */
+@keyframes changeFace {
+  100% {
+    top: 0.425rem;
+    width: 0.09375rem;
+    height: 0.09375rem;
+    background: #8e8e8e;
+    border: none;
+    border-radius: 100%;
+  }
+}
+
+@keyframes changeFaceReverse {
+  0% {
+    top: 0.425rem;
+    width: 0.09375rem;
+    height: 0.09375rem;
+    border: none;
+    border-radius: 100%;
+    background: #8e8e8e;
+  }
+}
+
+/* mouth shape change */
+@keyframes changeMouth {
+  100% {
+    top: 0.6375rem;
+    left: 0.28125rem;
+    height: 0.15625rem;
+    width: 0.40625rem;
+    background: #8e8e8e;
+    background-image: linear-gradient(to bottom, #8e8e8e, #a4a4a4);
+    border-radius: 0.05rem 0.05rem 0.25rem 0.25rem;
+  }
+}
+
+@keyframes changeMouthReverse {
+  0% {
+    top: 0.6375rem;
+    left: 0.225rem;
+    height: 0.15625rem;
+    width: 0.40625rem;
+    background: #c9f3ba;
+    background-image: linear-gradient(to bottom, #f80000, #4d0d0d);
+    border: none;
+    border-radius: 0.05rem 0.05rem 0.25rem 0.25rem;
+  }
+  25% { left: 0.28125rem; }
+}
+
+
+/* Dark mode theme */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+header.dark-mode {
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+}
+
+header.dark-mode p a {
+    color: #bb86fc;
+}
+
+header.dark-mode p a:hover {
+    color: #9b5de5;
+}
+
+table.dark-mode {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+table.dark-mode td {
+    border: 1px solid #333;
+}
+
+ul li::before {
+    color: #bb86fc;
+}
+
+a.dark-mode {
+    color: #bb86fc;
+}
+
+a.dark-mode:hover {
+    color: #9b5de5;
+}
+
+footer.dark-mode {
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+}
